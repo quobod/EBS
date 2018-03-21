@@ -38,7 +38,10 @@ yarn install
 # and outputs a src directory
 yarn run init-gulp
 
-# Run app in browser and watch multiple directory's file changes
+# Run app in browser and watch multiple directory's file changes using Nodemon
+## Nodemon Installation
+yarn add nodemon --global <path-global-directory>
+
 yarn run serve-site
 
 # Re-generates the docs directory
