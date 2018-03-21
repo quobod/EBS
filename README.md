@@ -12,7 +12,7 @@
                 <p><b><i>Running the gulp "default" task</i></b> will compile the sass and copy all assets folder to src.</p>
             </li>
             <li>
-                <p><b><i>Simply copy the assets folders to the  <b><i>Express static path (public)</i></b> --> css, fonts, graphics, js, favicon</p>
+                <p>Simply copy the assets folders to the  <b><i>Express static path (public)</i></b> --> css, fonts, graphics, js, favicon</p>
             </li>
         </ol>
     </li>
@@ -26,7 +26,7 @@
     </li>
 </ul>
 
-
+<i>
 
 ```
 # Installation
@@ -44,5 +44,5 @@ yarn run serve-site
 # Re-generates the docs directory
 yarn run create-docs
 ```
-
+</i>
 <p><small><b>NOTE: </b></small><hr><small>Executing the gulp docs task <b><i>while the docs directory exists</i></b> will error out on first attempt<b><i> -- re-running the task will successfully generate the docs directory</i></b></p>
