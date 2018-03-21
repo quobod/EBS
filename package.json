@@ -1,0 +1,29 @@
+{
+  "name": "storybooks",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Rick Walker",
+  "license": "MIT",
+  "scripts": {
+    "serve-site": "nodemon --watch app.js --watch package.json --watch public/js --watch public/css --watch views -e hbs,js,css,handlebars,json ",
+    "create-docs": "gulp clean-docs && gulp docs",
+    "init-gulp": "gulp"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "browser-sync": "^2.23.6",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.0.11",
+    "popper.js": "^1.14.1",
+    "pump": "^3.0.0"
+  },
+  "devDependencies": {
+    "chalk": "^2.3.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

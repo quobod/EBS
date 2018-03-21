@@ -1,0 +1,51 @@
+body {
+  background: #333;
+  color: #fff; }
+
+.navbar {
+  border-bottom: #00e8d6 3px solid;
+  opacity: 0.8; }
+  .navbar a {
+    opacity: 1;
+    font-weight: bold;
+    margin: 0px;
+    margin-left: 8px; }
+  .navbar .nav-links {
+    color: #fff; }
+
+#home-section {
+  background: url("../graphics/view.png") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 700px; }
+  #home-section .dark-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px; }
+  #home-section .home-inner {
+    padding-top: 150px; }
+  #home-section .card-form {
+    opacity: 0.8; }
+  #home-section .fa {
+    color: #00e8d6;
+    background: #fff;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 30px; }
+
+.container .nav-header {
+  font-weight: bolder;
+  font-size: 1.3em;
+  font-family: cursive, garamond, georgia, arial, serif, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  margin-right: 20px;
+  font-decoration: none;
+  cursor: text;
+  padding: 8px;
+  color: #fff; }
+  .container .nav-header:hover {
+    text-decoration: none; }
