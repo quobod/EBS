@@ -1,9 +1,11 @@
+/* Colors */
+/* Gradients */
 body {
   background: #333;
   color: #fff; }
 
 .navbar {
-  border-bottom: #00e8d6 3px solid;
+  border-bottom: #00e8d6 4px dotted;
   opacity: 0.8; }
   .navbar a {
     opacity: 1;

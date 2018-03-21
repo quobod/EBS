@@ -7,13 +7,23 @@ $font-bold: bolder;
 $font-italic: italic;
 
 
+/* Colors */
+$dull-white: #c0c0c0;
+$orange: #f80d22;
+$dull-gray: #728292;
+$border-default: $primary-color;
+
+/* Gradients */
+$border-bottom: linear-gradient(to right,$primary-color $dull-white, $orange, $dull-gray);
+
 body {
     background: $bg-color;
     color: $font-color;
 }
 
 .navbar {
-    border-bottom: $primary-color 3px solid;
+    background: linear-gradient(to right, rgba(200,0,100,0), rgba(0,80, 88,0.2));
+    border-bottom: $border-default 3px solid;
     opacity: 0.8;
     
     a {

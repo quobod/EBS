@@ -6,21 +6,30 @@ const del = require('del');
 const pump = require('pump');
 
 // Paths for source and output that's going to the docs directory
-const BASE_SRC = './gulp/src/';
-const DEST = './docs/';
+const BASE_SRC = 'gulp/src/';
+const BASE_DEST = './gulp/src/';
+const DOCS_DEST = './docs/';
 const HTML = `${BASE_SRC}*.html`;
-const SASS_SRC = `${BASE_SRC}*.scss`;
+const SASS_SRC = `${BASE_SRC}scss/*.scss`;
 const IMG_SRC = `${BASE_SRC}graphics/*.png`;
 const ICON_SRC = `${BASE_SRC}favicon.ico`;
-const IMG_DEST = `${DEST}graphics`;
+const IMG_DEST = `${BASE_DEST}graphics`;
 const FONTS_SRC = `${BASE_SRC}fonts/**/*`;
-const FONTS_DEST = `${DEST}/fonts`;
+const FONTS_DEST = `${BASE_DEST}/fonts`;
 const CSS_SRC = `${BASE_SRC}css/**/*`;
-const CSS_DEST = `${DEST}css`;
+const CSS_DEST = `${BASE_DEST}css`;
 const JS_SRC = `${BASE_SRC}js/**/*`;
-const JS_DEST = `${DEST}js`;
+const JS_DEST = `${BASE_DEST}js`;
 const HTML_SRC = `${HTML}`;
-const HTML_DEST = `${DEST}`;
+const HTML_DEST = `${BASE_DEST}`;
+
+// Paths for source and output that's going to the docs directory
+const DOCS_IMG_DEST = `${DOCS_DEST}graphics`;
+const DOCS_FONTS_DEST = `${DOCS_DEST}/fonts`;
+const DOCS_CSS_DEST = `${DOCS_DEST}css`;
+const DOCS_JS_DEST = `${DOCS_DEST}js`;
+const DOCS_HTML_DEST = `${DOCS_DEST}`;
+const DOCS_ICON_DEST = `${DOCS_DEST}`;
 
 // Paths for source and output that's going to the express "static assets" public directory
 const EXP_BASE_DEST = './public/';
@@ -34,7 +43,7 @@ const log = (arg = '') => { console.log(arg); };
 
 // compile Sass & Inject into browser
 gulp.task('sass', () => {
-    return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
+    return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', `${SASS_SRC}`])
         .pipe(sass())
         .pipe(gulp.dest(`${CSS_DEST}`))
         .pipe(browser.stream());
@@ -75,47 +84,47 @@ gulp.task('fa', () => {
 gulp.task('graphics', () => {
     log(`\n\tMoving graphic files from: ${IMG_SRC}`);
     return gulp.src(`${IMG_SRC}`)
-        .pipe(gulp.dest(`${IMG_DEST}`));
+        .pipe(gulp.dest(`${DOCS_IMG_DEST}`));
 });
 
 // Move fonts folder to docs
 gulp.task('font', () => {
     log(`\n\tMoving font files from: ${FONTS_SRC}`);
     return gulp.src(`${FONTS_SRC}`)
-        .pipe(gulp.dest(`${FONTS_DEST}`));
+        .pipe(gulp.dest(`${DOCS_FONTS_DEST}`));
 });
 
 // Move css folder to docs
 gulp.task('css', () => {
     log(`\n\tMoving css files from: ${CSS_SRC}`);
     return gulp.src(`${CSS_SRC}`)
-        .pipe(gulp.dest(`${CSS_DEST}`));
+        .pipe(gulp.dest(`${DOCS_CSS_DEST}`));
 });
 
 // Move js folder to docs
 gulp.task('javascript', () => {
     log(`\n\tMoving js files from: ${JS_SRC}`);
     return gulp.src(`${JS_SRC}`)
-        .pipe(gulp.dest(`${JS_DEST}`));
+        .pipe(gulp.dest(`${DOCS_JS_DEST}`));
 });
 
 // Move the favicon to docs
 gulp.task('favicon', () => {
     log(`\n\tMoving the favicon from: ${BASE_SRC}`);
     return gulp.src(`${ICON_SRC}`)
-        .pipe(gulp.dest(`${DEST}`));
+        .pipe(gulp.dest(`${DOCS_ICON_DEST}`));
 });
 
 // Move html files to docs
 gulp.task('html', () => {
     log(`\n\tMoving HTML files from: ${HTML_SRC}`);
     return gulp.src(`${HTML_SRC}`)
-        .pipe(gulp.dest(`${HTML_DEST}`));
+        .pipe(gulp.dest(`${DOCS_HTML_DEST}`));
 });
 
 // Clean then remove the docs folder
 gulp.task('clean-docs', () => {
-    return  del([`${DEST}`]);
+    return  del([`${DOCS_DEST}`]);
 });
 
 // Clean the docs folder

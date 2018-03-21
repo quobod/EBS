@@ -2,12 +2,21 @@ const express = require('express');
 const path = require('path');
 const expressHbs = require('express-handlebars');
 const mongoose = require('mongoose');
+require('dotenv').config();
+
+const db = require('./config/database');
+
+// Map global promise
+mongoose.Promise = global.Promise;
+
+// Connect to mongoose
+const db_path = process.env.M_DB_PATH;
+mongoose.connect(`${db.mongoURI}`)
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
 
 // Router File
 const index = require('./routes/index');
-
-// Port
-const port = process.env.PORT || 5000;
 
 const app = express();
 
