@@ -44,7 +44,9 @@ yarn run init-gulp
 ### Nodemon Installation
 ```
 yarn add nodemon --global <path-global-directory>
-
+```
+### Serve site
+```
 yarn run serve-site
 ```
 
