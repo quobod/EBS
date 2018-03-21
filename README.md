@@ -40,7 +40,7 @@ yarn install
 yarn run init-gulp
 ```
 
-## The serve-site script usesNodemon to serve the app and watch multiple folders
+## The serve-site script uses Nodemon to serve the app and watch multiple folders
 ### Nodemon Installation
 ```
 yarn add nodemon --global <path-to-global-directory>
