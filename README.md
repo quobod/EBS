@@ -28,28 +28,27 @@
 
 <i>
 
-# Installation
+## Installation
 ```
 git clone https://github.com/quobod/EBS.git or download the zip
 cd EBS
 yarn install
 ```
 
-# Default gulp task --> compiles sass, serves html
-# and outputs a src directory
+## Default gulp task --> compiles sass, serves html and outputs a src directory
 ```
 yarn run init-gulp
 ```
 
-# Run app in browser and watch multiple directory's file changes using Nodemon
-## Nodemon Installation
+## Run app in browser and watch multiple directory's file changes using Nodemon
+### Nodemon Installation
 ```
 yarn add nodemon --global <path-global-directory>
 
 yarn run serve-site
 ```
 
-# Re-generates the docs directory
+## Re-generates the docs directory
 ```
 yarn run create-docs
 ```
