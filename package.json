@@ -7,7 +7,8 @@
   "scripts": {
     "serve-site": "nodemon --watch app.js --watch package.json --watch public/js --watch public/css --watch views -e hbs,js,css,handlebars,json ",
     "create-docs": "gulp clean-docs && gulp docs",
-    "init-gulp": "gulp"
+    "init-gulp": "gulp",
+    "start": "nodemon --watch app.js --watch public/js --watch public/css --watch views -e hbs,js,css,handlebars,json"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
