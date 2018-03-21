@@ -40,10 +40,10 @@ yarn install
 yarn run init-gulp
 ```
 
-## Run app in browser and watch multiple directory's file changes using Nodemon
+## The serve-site script usesNodemon to serve the app and watch multiple folders
 ### Nodemon Installation
 ```
-yarn add nodemon --global <path-global-directory>
+yarn add nodemon --global <path-to-global-directory>
 ```
 ### Serve site
 ```
