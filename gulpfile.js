@@ -196,3 +196,6 @@ gulp.task('move-public-graphics', () => {
     return gulp.src([`${IMG_SRC}`])
         .pipe(gulp.dest(`${EXP_BASE_DEST}/graphics`));
 });
+
+// Refresh css
+gulp.task('refresh-css', ['clean-public-css', 'move-public-css'], (done) => done);
