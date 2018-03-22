@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const expressHbs = require('express-handlebars');
 const mongoose = require('mongoose');
+const passport = require('passport');
+
 require('dotenv').config();
 
 const db = require('./config/database');
@@ -14,9 +16,13 @@ const db_path = process.env.M_DB_PATH;
 mongoose.connect(`${db.mongoURI}`)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
+    
+// Passport Config
+require('./config/passport')(passport);    
 
-// Router File
+// Router Files
 const index = require('./routes/index');
+const google = require('./routes/auth');
 
 const app = express();
 
@@ -30,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/', index);
+app.use('/auth', google);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
