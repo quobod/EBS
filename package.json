@@ -5,7 +5,7 @@
   "author": "Rick Walker",
   "license": "MIT",
   "scripts": {
-    "serve-site": "nodemon --watch app.js --watch package.json --watch public/js --watch public/css --watch views -e hbs,js,css,handlebars,json ",
+    "serve-site": "nodemon app --watch app.js --watch package.json --watch public/js --watch public/css --watch views --watch gulp/src/scss -e hbs,js,css, scss, handlebars,json ",
     "create-docs": "gulp clean-docs && gulp docs",
     "init-gulp": "gulp",
     "start": "node app"
@@ -28,7 +28,7 @@
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0"
   },
-  "description": "<ul>\r     <li>\r         <h3>Description</h3>\r         <p>An Express, BootStrap4 starter web application.</p>\r     </li>\r     <li>\r         <h3>About Express Static Assets</h3>\r         <ol style=\"type: I\">\r             <li>\r                 <p><b><i>Running the gulp \"default\" task</i></b> will compile the sass and copy all assets folder to src.</p>\r             </li>\r             <li>\r                 <p>Simply copy the assets folders to the  <b><i>Express static path (public)</i></b> --> css, fonts, graphics, js, favicon</p>\r             </li>\r         </ol>\r     </li>\r     <li>\r         <h3>About the Docs Folder</h3>\r         <ol style=\"type: I\">\r             <li>\r                 <p><b><i>Running the gulp \"docs\" task</i></b> will create/re-create the docs directory</p>\r             </li>\r         </ol>\r     </li>\r </ul>",
+  "description": "<ul>\r<li>\r         <h3>Description</h3>\r         <p>An Express, BootStrap4 starter web application.</p>\r     </li>\r     <li>\r         <h3>About Express Static Assets</h3>\r         <ol style=\"type: I\">\r             <li>\r                 <p><b><i>Running the gulp \"default\" task</i></b> will compile the sass and copy all assets folder to src.</p>\r             </li>\r             <li>\r                 <p>Simply copy the assets folders to the  <b><i>Express static path (public)</i></b> --> css, fonts, graphics, js, favicon</p>\r             </li>\r         </ol>\r     </li>\r     <li>\r         <h3>About the Docs Folder</h3>\r         <ol style=\"type: I\">\r             <li>\r                 <p><b><i>Running the gulp \"docs\" task</i></b> will create/re-create the docs directory</p>\r             </li>\r         </ol>\r     </li>\r </ul>",
   "directories": {
     "doc": "docs"
   },
