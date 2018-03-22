@@ -41,4 +41,4 @@ package-lock.json
 custom_node_module_lab
 npm-debug.log
 firebase_config.txt
-config
+#config
