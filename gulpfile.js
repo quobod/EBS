@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const del = require('del');
 const pump = require('pump');
 
-// Paths for source and output that's going to the docs directory
+// Paths for source and output that's going to the src directory
 const BASE_SRC = 'gulp/src/';
 const BASE_DEST = './gulp/src/';
 const DOCS_DEST = './docs/';
