@@ -139,3 +139,60 @@ gulp.task('docs',  ['clean-docs', 'graphics', 'font', 'css', 'javascript', 'favi
 });
 
 gulp.task('default', ['js', 'serve', 'fa', 'fonts']);
+
+/*  Express static assets*/
+
+// Remove public css folder
+gulp.task('clean-public-css', () => {
+    return del([`${EXP_BASE_DEST}css`]);
+});
+
+// Copy css folder to the public folder
+gulp.task('move-public-css', () => {
+    return gulp.src([`${CSS_SRC}`])
+        .pipe(gulp.dest(`${EXP_CSS_DEST}`));
+});
+
+// Remove public fonts folder
+gulp.task('clean-public-fonts', () => {
+    return del([`${EXP_BASE_DEST}fonts`]);
+});
+
+// Copy fonts folder to the public folder
+gulp.task('move-public-fonts', () => {
+    return gulp.src([`${FONTS_SRC}`])
+        .pipe(gulp.dest(`${EXP_FONTS_DEST}`));
+});
+
+// Remove public js folder
+gulp.task('clean-public-js', () => {
+    return del([`${EXP_BASE_DEST}js`]);
+});
+
+// Copy js folder to thpublic folder
+gulp.task('move-public-js', () => {
+    return gulp.src([`${JS_SRC}`])
+        .pipe(gulp.dest(`${EXP_JS_DEST}`));
+});
+
+// Remove public favicon file
+gulp.task('clean-public-f avicon', () => {
+    return del([`${EXP_BASE_DEST}favicon.ico`]);
+});
+
+// Copy favicon file to the public folder
+gulp.task('move-public-favicon', () => {
+    return gulp.src([`${ICON_SRC}`])
+        .pipe(gulp.dest(`${EXP_FAVICON_DEST}`));
+});
+
+// Remove public graphics folder
+gulp.task('clean-public-graphics', () => {
+    return del([`${EXP_BASE_DEST}graphics`]);
+});
+
+// Copy graphics folder to the public folder
+gulp.task('move-public-graphics', () => {
+    return gulp.src([`${IMG_SRC}`])
+        .pipe(gulp.dest(`${EXP_BASE_DEST}/graphics`));
+});
