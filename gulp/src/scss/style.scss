@@ -14,7 +14,7 @@ $dull-gray: #728292;
 $border-default: $primary-color;
 
 /* Gradients */
-$border-bottom: linear-gradient(to right,$primary-color $dull-white, $orange, $dull-gray);
+$gradient: linear-gradient(to right, rgba(20, 20, 202, 0.0), rgba(82,82,202, 0.8));
 
 body {
     background: $bg-color;
@@ -22,7 +22,7 @@ body {
 }
 
 .navbar {
-    background: linear-gradient(to right, rgba(200,0,100,0), rgba(0,80, 88,0.2));
+    background: $gradient;
     border-bottom: $border-default 3px solid;
     opacity: 0.8;
     

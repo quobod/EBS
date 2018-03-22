@@ -5,7 +5,8 @@ body {
   color: #fff; }
 
 .navbar {
-  border-bottom: #00e8d6 4px dotted;
+  background: linear-gradient(to right, rgba(0, 200, 100, 0), rgba(0, 80, 88, 0.2));
+  border-bottom: #00e8d6 3px solid;
   opacity: 0.8; }
   .navbar a {
     opacity: 1;
