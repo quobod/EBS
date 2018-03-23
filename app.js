@@ -12,7 +12,6 @@ const db = require('./config/database');
 mongoose.Promise = global.Promise;
 
 // Connect to mongoose
-const db_path = process.env.M_DB_PATH;
 mongoose.connect(`${db.mongoURI}`)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
@@ -55,8 +54,6 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
-
-
 
 // set port
 app.set('port', (process.env.PORT || 5000));

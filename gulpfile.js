@@ -41,7 +41,7 @@ const EXP_FAVICON_DEST = `${EXP_BASE_DEST}`;
 
 const log = (arg = '') => { console.log(arg); };
 
-// compile Sass & Inject into browser
+// compile Sass copy to src/css & Inject into browser
 gulp.task('sass', () => {
     return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', `${SASS_SRC}`])
         .pipe(sass())
@@ -49,11 +49,24 @@ gulp.task('sass', () => {
         .pipe(browser.stream());
 });
 
-// Move JS files to src/js
+// compile Sass and copy to src/css 
+gulp.task('scss', () => {
+    return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', `${SASS_SRC}`])
+        .pipe(sass())
+        .pipe(gulp.dest(`${CSS_DEST}`));
+});
+
+//  Copy JS files to src/js & inject into browser
 gulp.task('js', () => {
     return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js'])
         .pipe(gulp.dest(`${JS_DEST}`))
         .pipe(browser.stream());
+});
+
+// Copy JS files to src/js no browser stream
+gulp.task('scripts', () => {
+    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/popper.js/dist/umd/popper.min.js'])
+        .pipe(gulp.dest(`${JS_DEST}`));
 });
 
 // Watch Sass & Serve
@@ -63,16 +76,16 @@ gulp.task('serve', ['sass'], () => {
     });
     
     gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', `${SASS_SRC}`], ['sass']);
-    gulp.watch('src/*.html').on('change', browser.reload);
+    gulp.watch('gulp/src/*.html').on('change', browser.reload);
 });
 
-// Move fonts folder to src
+// Copy fonts folder to src/fonts
 gulp.task('fonts', () => {
     return gulp.src('node_modules/font-awesome/fonts/*')
         .pipe(gulp.dest(`${FONTS_DEST}`));
 });
 
-// Move Font Awesome folder to src
+// Copy Font Awesome folder to src/css
 gulp.task('fa', () => {
     return gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
         .pipe(gulp.dest(`${CSS_DEST}`));
@@ -80,42 +93,42 @@ gulp.task('fa', () => {
 
 /*  Create the docs directory for use on github*/
 
-// Move graphics folder to docs
+// Copy graphics folder to docs
 gulp.task('graphics', () => {
     log(`\n\tMoving graphic files from: ${IMG_SRC}`);
     return gulp.src(`${IMG_SRC}`)
         .pipe(gulp.dest(`${DOCS_IMG_DEST}`));
 });
 
-// Move fonts folder to docs
+// Copy fonts folder to docs
 gulp.task('font', () => {
     log(`\n\tMoving font files from: ${FONTS_SRC}`);
     return gulp.src(`${FONTS_SRC}`)
         .pipe(gulp.dest(`${DOCS_FONTS_DEST}`));
 });
 
-// Move css folder to docs
+// Copy css folder to docs
 gulp.task('css', () => {
     log(`\n\tMoving css files from: ${CSS_SRC}`);
     return gulp.src(`${CSS_SRC}`)
         .pipe(gulp.dest(`${DOCS_CSS_DEST}`));
 });
 
-// Move js folder to docs
+// Copy js folder to docs
 gulp.task('javascript', () => {
     log(`\n\tMoving js files from: ${JS_SRC}`);
     return gulp.src(`${JS_SRC}`)
         .pipe(gulp.dest(`${DOCS_JS_DEST}`));
 });
 
-// Move the favicon to docs
+// Copy the favicon to docs
 gulp.task('favicon', () => {
     log(`\n\tMoving the favicon from: ${BASE_SRC}`);
     return gulp.src(`${ICON_SRC}`)
         .pipe(gulp.dest(`${DOCS_ICON_DEST}`));
 });
 
-// Move html files to docs
+// Copy html files to docs
 gulp.task('html', () => {
     log(`\n\tMoving HTML files from: ${HTML_SRC}`);
     return gulp.src(`${HTML_SRC}`)
@@ -138,7 +151,9 @@ gulp.task('docs',  ['clean-docs', 'graphics', 'font', 'css', 'javascript', 'favi
     return log(`${msg}`);
 });
 
-gulp.task('default', ['js', 'serve', 'fa', 'fonts']);
+gulp.task('serve', ['js', 'fa', 'serve', 'fonts']);
+
+gulp.task('default', ['scripts', 'fa', 'scss', 'fonts']);
 
 /*  Express static assets*/
 
@@ -176,7 +191,7 @@ gulp.task('move-public-js', () => {
 });
 
 // Remove public favicon file
-gulp.task('clean-public-f avicon', () => {
+gulp.task('clean-public-favicon', () => {
     return del([`${EXP_BASE_DEST}favicon.ico`]);
 });
 
@@ -197,5 +212,8 @@ gulp.task('move-public-graphics', () => {
         .pipe(gulp.dest(`${EXP_BASE_DEST}/graphics`));
 });
 
-// Refresh css
-gulp.task('refresh-css', ['clean-public-css', 'move-public-css'], (done) => done);
+// Refresh static assets
+gulp.task('refresh-assets', ['move-public-css', 'move-public-fonts', 'move-public-js', 'move-public-graphics', 'move-public-favicon'], (done) => done);
+
+// Remove static assets
+gulp.task('clear-assets', ['clean-public-css', 'clean-public-fonts', 'clean-public-js', 'clean-public-favicon', 'clean-public-graphics'], (done) => done);
