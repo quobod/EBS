@@ -5,7 +5,7 @@
   "author": "Rick Walker",
   "license": "MIT",
   "scripts": {
-    "serve-site": "nodemon app --watch app.js --watch package.json --watch public --watch views --watch gulp/src/scss -e hbs,js,css, scss, handlebars,json ",
+    "serve-site": "nodemon app --watch app.js --watch package.json --watch public --watch views --watch gulp/src/scss -e hbs,js,css, scss, handlebars, json ",
     "create-docs": "gulp clean-docs && gulp docs",
     "init-gulp": "gulp",
     "start": "node app"

@@ -91,7 +91,7 @@ gulp.task('fa', () => {
         .pipe(gulp.dest(`${CSS_DEST}`));
 });
 
-/*  Create the docs directory for use on github*/
+/*  Create the docs directory*/
 
 // Copy graphics folder to docs
 gulp.task('graphics', () => {
@@ -151,8 +151,10 @@ gulp.task('docs',  ['clean-docs', 'graphics', 'font', 'css', 'javascript', 'favi
     return log(`${msg}`);
 });
 
+/*  Serve the src/index.html file*/
 gulp.task('serve', ['js', 'fa', 'serve', 'fonts']);
 
+/*  Transpile*/
 gulp.task('default', ['scripts', 'fa', 'scss', 'fonts']);
 
 /*  Express static assets*/
