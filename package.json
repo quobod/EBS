@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "serve-site": "nodemon app --watch app.js --watch package.json --watch public --watch views --watch gulp/src/scss -e hbs,js,css, scss, handlebars, json ",
-    "create-docs": "gulp clean-docs && gulp docs",
-    "init-gulp": "gulp",
-    "start": "node app"
+    "create-docs": "gulp && gulp clean-docs && gulp docs",
+    "start": "node app",
+    "static": "gulp clear-assets && gulp refresh-assets"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",

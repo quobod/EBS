@@ -32,27 +32,35 @@
 ```
 git clone https://github.com/quobod/EBS.git or download the zip
 cd EBS
-yarn install
+npm install
 ```
 
-## Default gulp task --> compiles sass, serves html and outputs a src directory
+## Default gulp task --> compiles sass and copies css, js, fonts, graphics and the favicon to the src directory
 ```
-yarn run init-gulp
+npm run init-gulp
 ```
 
 ## The serve-site script uses Nodemon to serve the app and watch multiple folders
 ### Nodemon Installation
 ```
-yarn add nodemon --global <path-to-global-directory>
+npm add nodemon --global
 ```
-### Serve site
+### Serve site using nodemon and watch options
 ```
-yarn run serve-site
+npm run serve-site
 ```
 
 ## Re-generates the docs directory
 ```
-yarn run create-docs
+npm run create-docs
+```
+
+## Transpiles and copy static assets to the src directory,
+## then clears the static assets from the public directory and
+## finally copies the new src files to the public directory
+npm run static
+```
+npm run static
 ```
 </i>
 <p><small><b>NOTE: </b></small><hr><small>Executing the gulp docs task <b><i>while the docs directory exists</i></b> will error out on first attempt<b><i> -- re-running the task will successfully generate the docs directory</i></b></p>
