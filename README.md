@@ -28,20 +28,20 @@
 
 <i>
 
-## Installation
+### Installation
 ```
 git clone https://github.com/quobod/EBS.git or download the zip
 cd EBS
 npm install
 ```
 
-## Default gulp task --> compiles sass and copies css, js, fonts, graphics and the favicon to the src directory
+### Default gulp task --> compiles sass and copies css, js, fonts, graphics and the favicon to the src directory
 ```
 npm run init-gulp
 ```
 
-## The serve-site script uses Nodemon to serve the app and watch multiple folders
-### Nodemon Installation
+### The serve-site script uses Nodemon to serve the app and watch multiple folders
+#### Nodemon Installation
 ```
 npm add nodemon --global
 ```
@@ -50,14 +50,14 @@ npm add nodemon --global
 npm run serve-site
 ```
 
-## Re-generates the docs directory
+### Re-generates the docs directory
 ```
 npm run create-docs
 ```
 
-## Transpiles and copy static assets to the src directory,
-## then clears the static assets from the public directory and
-## finally copies the new src files to the public directory
+### Transpiles and copy static assets to the src directory,
+### then clears the static assets from the public directory and
+### finally copies the new src files to the public directory
 npm run static
 ```
 npm run static
